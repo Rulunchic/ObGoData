@@ -1,0 +1,118 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+ENV/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+dist/
+build/
+*.whl
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.next/
+.nuxt/
+out/
+.parcel-cache/
+.turbo/
+coverage/
+
+# Rust
+target/
+**/*.rs.bk
+Cargo.lock.bak
+
+# .NET / C#
+bin/
+obj/
+*.user
+*.suo
+.vs/
+*.pdb
+*.dll
+*.exe
+
+# Java / Kotlin
+*.class
+*.jar
+*.war
+.gradle/
+build/
+out/
+
+# Go
+*.exe
+*.test
+*.out
+vendor/
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Secrets & env
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+*.kdbx
+secrets.yaml
+config.local.yaml
+
+# Logs
+*.log
+logs/
+
+# Data files (большие, не в git)
+data/
+*.sqlite
+*.sqlite3
+*.db
+*.parquet
+*.arrow
+*.csv
+*.tsv
+!tests/fixtures/*.csv
+
+# Models
+*.gguf
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.h5
+*.onnx
+*.tflite
+*.pb
+
+# OS
+.DS_Store
+desktop.ini
+$RECYCLE.BIN/
+
+# Temp
+tmp/
+temp/
+*.tmp
+*.bak
+*.orig

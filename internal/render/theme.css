@@ -1,0 +1,215 @@
+:root {
+  --bg-base: #1a1a1a;
+  --bg-panel: #222;
+  --fg: #e0e0e0;
+  --fg-muted: #999;
+  --fg-subtle: #666;
+  --accent: #7cb8e8;
+  --accent-fg: #0d0d0d;
+  --border: rgba(255,255,255,0.1);
+  --font-mono: 'JetBrains Mono', 'Cascadia Code', 'Consolas', monospace;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-base: #f5f5f5;
+    --bg-panel: #fff;
+    --fg: #222;
+    --fg-muted: #666;
+    --fg-subtle: #999;
+    --accent: #2563eb;
+    --accent-fg: #fff;
+    --border: rgba(0,0,0,0.12);
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--fg);
+  background: var(--bg-base);
+  padding: 0;
+}
+
+nav {
+  border-bottom: 1px solid var(--border);
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  background: var(--bg-panel);
+}
+
+nav .muted {
+  font-weight: 400;
+  color: var(--fg-muted);
+  font-size: 0.875rem;
+}
+
+main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+h1, h2, h3 { font-family: inherit; font-weight: 600; color: var(--fg); }
+h1 { font-size: 1.25rem; }
+h2 { font-size: 1.1rem; margin-bottom: 12px; }
+h3 { font-size: 1rem; font-weight: 500; }
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 12px 16px;
+}
+
+.stat-card .value {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.stat-card .label {
+  font-size: 0.75rem;
+  color: var(--fg-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.chart-panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 16px;
+}
+
+.chart-panel canvas {
+  width: 100% !important;
+  max-height: 300px;
+}
+
+.chart-panel.fullscreen {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  border-radius: 0;
+  border: none;
+  padding: 32px 48px 48px 48px;
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-panel.fullscreen canvas {
+  flex: 1;
+  max-height: none;
+  height: auto !important;
+}
+
+.chart-panel.fullscreen .chart-hdr h2 {
+  font-size: 1.25rem;
+}
+
+.chart-panel.fullscreen .chart-actions .cbtn:last-child {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.table-wrap {
+  overflow-x: auto;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+}
+
+th, td {
+  text-align: left;
+  padding: 6px 12px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+th {
+  color: var(--fg-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+}
+
+tr:last-child td { border-bottom: none; }
+
+td.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 2px; }
+
+.footer {
+  text-align: center;
+  padding: 24px;
+  color: var(--fg-subtle);
+  font-size: 0.75rem;
+}
+
+.chart-hdr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.chart-hdr h2 {
+  margin-bottom: 0;
+}
+
+.chart-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.cbtn {
+  font: inherit;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg-base);
+  color: var(--fg-subtle);
+  cursor: pointer;
+  line-height: 1.4;
+  transition: border-color 80ms ease, color 80ms ease;
+}
+
+.cbtn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
